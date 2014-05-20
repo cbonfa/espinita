@@ -3,6 +3,8 @@ module Espinita
     belongs_to :auditable, polymorphic: true
     belongs_to :user, polymorphic: true
 
+    attr_accessible :auditable_id, :auditable_type, :audited_changes, :created_at, :remote_address, 
+                    :updated_at, :user_id, :user_type, :version
 
     scope :descending,    ->{ reorder("version DESC")}
     scope :creates,       ->{ where({:action => 'create'})}
